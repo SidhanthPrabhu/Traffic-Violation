@@ -2,8 +2,6 @@
 
 Detects motorcycles/scooters in a single RGB street image, counts riders per vehicle, flags helmet violations, and extracts the license plate of any violating vehicle — fully offline, with no internet access required at inference time.
 
-> **Status / TODO:** This repo also contains `merge.py` and the folders `d1/`, `d2/`, `d3/`, `merged/`, which aren't covered by this README yet. If these are dataset shards that `merge.py` combines (e.g. for training the auxiliary helmet/plate model), document that here with a short "Dataset Prep" section. Until then, treat `solution.py` as the single source of truth for the inference pipeline.
-
 ---
 
 ## Table of Contents
@@ -221,4 +219,4 @@ Without an auxiliary detector, the pipeline still needs to produce an answer. Gr
 - The helmet heuristic is a coarse proxy, not a trained classifier — expect false positives/negatives without `helmet_plate.pt`.
 - Detection thresholds (confidence 0.35, IoU 0.10, etc.) are fixed constants in `solution.py` rather than configurable parameters; tune them in code for your specific camera setup.
 - No video/multi-frame tracking — each image is scored independently, so the same vehicle across frames is not deduplicated.
-- `merge.py` and the `d1/d2/d3/merged` folders are currently undocumented (see TODO above).
+
